@@ -1,3 +1,14 @@
 spring:
   application:
     name: aivle-central-4-8
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: "jdbc:mariadb://aice4db.duckdns.org:3306/aivle4th"
+    username: ${personal.db-id}       # 데이터베이스 아이디
+    password: ${personal.db-pw} # 데이터베이스 비밀번호
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    import: classpath:personal.yaml

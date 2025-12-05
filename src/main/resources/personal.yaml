@@ -1,0 +1,6 @@
+personal:
+  db-id: "aivle"
+  db-pw: "aivle202508"
+  ssh-key: "/Users/a1707/sgcp_db_rsa"
+  ssh-passphrase: "aivle202508"
+  ssh-username: "a1707"
