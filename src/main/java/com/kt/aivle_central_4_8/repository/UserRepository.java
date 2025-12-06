@@ -1,3 +1,5 @@
+//UserRepository
+//- UserEntity에 대한 디비 조회 기능을 제공하는 JPA 리포지토리
 package com.kt.aivle_central_4_8.repository;
 
 import java.util.Optional;
