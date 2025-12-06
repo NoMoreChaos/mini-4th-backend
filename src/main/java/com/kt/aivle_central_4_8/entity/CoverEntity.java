@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CoverEntity {
     @Id
-    @Column(name = "cover_cd", length = 36)
+    @Column(name = "cover_cd", nullable = false, length = 36)
     private String coverCd;
 
     @Column(name = "book_cd", nullable = false, length = 36)
