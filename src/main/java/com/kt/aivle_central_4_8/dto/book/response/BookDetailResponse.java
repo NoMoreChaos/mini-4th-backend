@@ -1,10 +1,9 @@
-package com.kt.aivle_central_4_8.dto;
+package com.kt.aivle_central_4_8.dto.book.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @AllArgsConstructor

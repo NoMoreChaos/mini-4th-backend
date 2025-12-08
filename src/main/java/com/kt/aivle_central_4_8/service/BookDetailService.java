@@ -1,6 +1,6 @@
 package com.kt.aivle_central_4_8.service;
 
-import com.kt.aivle_central_4_8.dto.BookDetailResponse;
+import com.kt.aivle_central_4_8.dto.book.response.BookDetailResponse;
 import com.kt.aivle_central_4_8.entity.BookEntity;
 import com.kt.aivle_central_4_8.entity.CoverEntity;
 import com.kt.aivle_central_4_8.entity.UserEntity;

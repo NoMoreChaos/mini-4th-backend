@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, String> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
     // 이메일 + 비밀번호로 사용자 조회
     Optional<UserEntity> findByUserEmailDcAndUserPwDc(String userEmailDc, String userPwDc);
 }
