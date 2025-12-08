@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user_tb")
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
