@@ -8,17 +8,18 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "book_tb")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class BookEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_cd", nullable = false, length = 36)
-    private String bookCd;
+    private Long bookCd;
 
     @Column(name = "book_nm", nullable = false, length = 200)
     private String bookNm;
@@ -41,6 +42,5 @@ public class BookEntity {
     @Column(name = "user_cd", nullable = false, length = 36)
     private String userCd;
 
-    @Column(name = "cover_cd", nullable = false, length = 36)
-    private String coverCd;
 }
+ 
