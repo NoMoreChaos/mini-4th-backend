@@ -1,5 +1,6 @@
 package com.kt.aivle_central_4_8.service;
 
+import com.kt.aivle_central_4_8.entity.BookEntity;
 import com.kt.aivle_central_4_8.dto.book.request.BookListRequest;
 import com.kt.aivle_central_4_8.dto.book.response.BookListResponse;
 import com.kt.aivle_central_4_8.dto.book.response.BookSummaryDto;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class BookService { //
+public class BookService {
 
     private final BookRepository bookRepository;
 
@@ -22,15 +23,23 @@ public class BookService { //
         int size = req.getLimit();
         var pageable = PageRequest.of(page, size);
 
-        // 장르 처리
+        // userCd는 받지만, 조회 조건에는 사용하지 않음
         String genre = req.getBookGenreFg();
-        if (genre != null && genre.isBlank()) genre = null;
 
-        // 전체 책 권수
+        // 전체 책 권수 (장르/사용자 상관 없이 전체)
         int total = bookRepository.countAllBooks();
 
-        // Repository 가 DTO 형태로 반환하므로 그대로 사용
-        List<BookSummaryDto> list = bookRepository.findBooks(genre, pageable);
+        // 장르 필터 + 페이지네이션 적용된 책 목록 조회
+        List<BookSummaryDto> list = bookRepository
+                .findBooksWithSelectedCover(genre, pageable)
+                .stream()
+                .map(row -> {
+                    BookEntity book = (BookEntity) row[0];
+                    String coverFileEn = (String) row[1];
+                    return BookSummaryDto.from(book, coverFileEn);
+                })
+                .toList();
+
 
         return new BookListResponse(total, list);
     }

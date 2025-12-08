@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class BookListResponse {
+
     private int totalCount;
     private List<BookSummaryDto> bookList;
 }
-
