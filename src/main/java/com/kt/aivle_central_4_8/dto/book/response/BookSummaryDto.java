@@ -1,6 +1,5 @@
 package com.kt.aivle_central_4_8.dto.book.response;
 
-import com.kt.aivle_central_4_8.entity.BookEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,17 +13,5 @@ public class BookSummaryDto {
     private String bookGenreFg;
     private String bookCreateDt;
     private String bookModifyDt;
-    private String coverFileEn;
-
-    public static BookSummaryDto from(BookEntity entity) {
-        return new BookSummaryDto(
-                entity.getBookCd(),
-                entity.getBookNm(),
-                entity.getBookSummaryDc(),
-                entity.getBookGenreFg(),
-                entity.getBookCreateDt().toString(),
-                entity.getBookModifyDt().toString()
-                entity.getCoverCd()
-        );
-    }
+    private String coverFileEn; // Cover 테이블에서 가져온 실제 base64
 }

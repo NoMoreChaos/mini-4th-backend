@@ -10,6 +10,6 @@ public class BookListRequest {
     private int limit = 10;
     private int page = 1;
 
-    private String userCd;       // 필터링에는 사용 X
+    private String userCd;       // 필터링에는 사용안함
     private String bookGenreFg;  // Optional 장르 필터
 }

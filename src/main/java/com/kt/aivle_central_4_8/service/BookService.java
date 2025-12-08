@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class BookService {
+public class BookService { //
 
     private final BookRepository bookRepository;
 
@@ -22,18 +22,15 @@ public class BookService {
         int size = req.getLimit();
         var pageable = PageRequest.of(page, size);
 
-        // userCd는 받지만, 조회 조건에는 사용하지 않음
+        // 장르 처리
         String genre = req.getBookGenreFg();
+        if (genre != null && genre.isBlank()) genre = null;
 
-        // 전체 책 권수 (장르/사용자 상관 없이 전체)
+        // 전체 책 권수
         int total = bookRepository.countAllBooks();
 
-        // 장르 필터 + 페이지네이션 적용된 책 목록 조회
-        List<BookSummaryDto> list = bookRepository
-                .findBooks(genre, pageable)
-                .stream()
-                .map(BookSummaryDto::from)
-                .toList();
+        // Repository 가 DTO 형태로 반환하므로 그대로 사용
+        List<BookSummaryDto> list = bookRepository.findBooks(genre, pageable);
 
         return new BookListResponse(total, list);
     }
