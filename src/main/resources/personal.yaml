@@ -1,6 +1,0 @@
-personal:
-  db-id: "DB 아이디"
-  db-pw: "DB 비번"
-  ssh-key: "SSH키 경로"
-  ssh-passphrase: "SSH키 암호"
-  ssh-username: "SSH 접속할 아이디"
