@@ -17,8 +17,8 @@ public class BookDeleteController {
 
     @DeleteMapping("/delete")
     public ApiResponse<Void> deleteBook(
-            @RequestParam Long userCd,
-            @RequestParam Long bookCd
+            @RequestParam String userCd,
+            @RequestParam String bookCd
     ) {
         bookDeleteService.deleteBook(userCd, bookCd);
         return ApiResponse.success(null);

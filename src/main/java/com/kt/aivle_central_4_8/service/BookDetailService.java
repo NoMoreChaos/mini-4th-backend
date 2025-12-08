@@ -23,15 +23,15 @@ public class BookDetailService {
     private final CoverRepository coverRepository;
 
     // 도서 상세정보 조회 로직
-    public BookDetailResponse getBookDetail(Long userCd, Long bookCd){
+    public BookDetailResponse getBookDetail(String userCd, String bookCd){
 
         // userCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(userCd == null){
+        if(userCd == null || userCd.isEmpty()){
             throw new RuntimeException("userCd는 필수 입력 값입니다.");
         }
 
         // bookCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(bookCd == null){
+        if(bookCd == null || bookCd.isEmpty()){
             throw new RuntimeException("bookCd는 필수 입력 값입니다.");
         }
 

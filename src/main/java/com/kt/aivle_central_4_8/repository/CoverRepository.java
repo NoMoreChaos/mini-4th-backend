@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CoverRepository extends JpaRepository<CoverEntity, Long> {
+public interface CoverRepository extends JpaRepository<CoverEntity, String> {
 
-    List<CoverEntity> findAllByBookCd(Long bookCd);
+    List<CoverEntity> findAllByBookCd(String bookCd);
 
-    void deleteAllByBookCd(Long bookCd);
+    void deleteAllByBookCd(String bookCd);
 }

@@ -15,8 +15,8 @@ public class BookDetailController {
 
     @GetMapping("/detail")
     public ApiResponse<BookDetailResponse> getBookDetail(
-            @RequestParam Long userCd,
-            @RequestParam Long bookCd
+            @RequestParam String userCd,
+            @RequestParam String bookCd
     ){
         BookDetailResponse response =  bookDetailService.getBookDetail(userCd, bookCd);
         return ApiResponse.success(response);
