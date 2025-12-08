@@ -18,7 +18,7 @@ public class BookEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_cd", nullable = false, length = 36)
+    @Column(name = "book_cd", nullable = false)
     private Long bookCd;
 
     @Column(name = "book_nm", nullable = false, length = 200)
@@ -39,8 +39,8 @@ public class BookEntity {
     @Column(name = "book_modify_dt")
     private LocalDateTime bookModifyDt;
 
-    @Column(name = "user_cd", nullable = false, length = 36)
-    private String userCd;
+    @Column(name = "user_cd", nullable = false)
+    private Long userCd;
 
 }
  

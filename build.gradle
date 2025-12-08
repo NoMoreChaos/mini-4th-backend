@@ -30,6 +30,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'com.github.mwiede:jsch:2.27.7'
+
+	// ADD: 컨트롤러에서 검증 자동 처리
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'

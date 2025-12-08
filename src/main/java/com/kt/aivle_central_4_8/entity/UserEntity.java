@@ -1,9 +1,6 @@
 package com.kt.aivle_central_4_8.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +10,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user_tb")
-
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,8 +17,9 @@ import java.time.LocalDateTime;
 public class UserEntity {
 
     @Id
-    @Column(name = "user_cd", nullable = false, length = 36)
-    private String userCd;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_cd", nullable = false)
+    private Long userCd;
 
     @Column(name = "user_email_dc", nullable = false, length = 150)
     private String userEmailDc;
