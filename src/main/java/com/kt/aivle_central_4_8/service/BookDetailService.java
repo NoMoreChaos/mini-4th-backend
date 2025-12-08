@@ -11,6 +11,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -21,15 +23,15 @@ public class BookDetailService {
     private final CoverRepository coverRepository;
 
     // 도서 상세정보 조회 로직
-    public BookDetailResponse getBookDetail(String userCd, String bookCd){
+    public BookDetailResponse getBookDetail(Long userCd, Long bookCd){
 
         // userCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(userCd == null || userCd.trim().isEmpty()){
+        if(userCd == null){
             throw new RuntimeException("userCd는 필수 입력 값입니다.");
         }
 
         // bookCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(bookCd == null || bookCd.trim().isEmpty()){
+        if(bookCd == null){
             throw new RuntimeException("bookCd는 필수 입력 값입니다.");
         }
 
@@ -41,10 +43,17 @@ public class BookDetailService {
         BookEntity book = bookRepository.findById(bookCd)
                 .orElseThrow(() -> new RuntimeException("해당 도서가 존재하지 않습니다."));
 
-        // DB에서 Cover 조회
-        String coverCd = book.getCoverCd();
-        CoverEntity cover = coverRepository.findById(coverCd)
-                .orElseThrow(() -> new RuntimeException("해당 표지가 존재하지 않습니다."));
+        // DB에서 해당 도서의 Cover 조회
+        List<CoverEntity> covers = coverRepository.findAllByBookCd(bookCd);
+        if (covers.isEmpty()) {
+            throw new RuntimeException("해당 도서의 표지가 존재하지 않습니다.");
+        }
+
+        // 선택된 표지 찾기
+        CoverEntity selectedCover = covers.stream()
+                .filter(cover -> Boolean.TRUE.equals(cover.getCoverSelectYn()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("선택된 표지가 없습니다."));
 
         // DTO 변환
         BookDetailResponse response = new BookDetailResponse(
@@ -57,8 +66,8 @@ public class BookDetailService {
                 book.getBookGenreFg(),
                 book.getBookCreateDt(),
                 book.getBookModifyDt(),
-                cover.getCoverFileEn(),
-                book.getCoverCd()
+                selectedCover.getCoverFileEn(),
+                selectedCover.getCoverCd()
         );
 
         // 반환

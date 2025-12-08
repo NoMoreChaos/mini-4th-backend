@@ -19,15 +19,15 @@ public class BookDeleteService {
     private final CoverRepository coverRepository;
 
     // 도서 삭제 로직
-    public void deleteBook(String userCd, String bookCd){
+    public void deleteBook(Long userCd, Long bookCd){
 
         // userCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(userCd == null || userCd.trim().isEmpty()){
+        if(userCd == null){
             throw new RuntimeException("userCd는 필수 입력 값입니다.");
         }
 
         // bookCd 유효성 검증 (null 또는 빈 문자열인지 확인)
-        if(bookCd == null || bookCd.trim().isEmpty()){
+        if(bookCd == null){
             throw new RuntimeException("bookCd는 필수 입력 값입니다.");
         }
 
@@ -40,7 +40,7 @@ public class BookDeleteService {
                 .orElseThrow(() -> new RuntimeException("해당 도서가 존재하지 않습니다."));
 
         // Book의 소유자가 User인지 확인
-        if(!book.getUserCd().equals(userCd)){
+        if(userCd != book.getUserCd()){
             throw new RuntimeException("해당 책을 삭제할 권한이 없습니다.");
         }
 
