@@ -21,7 +21,7 @@ public class UserEntity {
     @Column(name = "user_cd", nullable = false, length = 36)
     private String userCd;
 
-    @Column(name = "user_email_dc", nullable = false, length = 150)
+    @Column(name = "user_email_dc", length = 150)
     private String userEmailDc;
 
     @Column(name = "user_pw_dc", nullable = false, length = 300)
@@ -30,7 +30,7 @@ public class UserEntity {
     @Column(name = "user_nick_nm", nullable = false, length = 20)
     private String userNickNm;
 
-    @Column(name = "user_join_dt", nullable = false)
+    @Column(name = "user_join_dt")
     private LocalDateTime userJoinDt;
 
     @Column(name = "user_modify_dt")
