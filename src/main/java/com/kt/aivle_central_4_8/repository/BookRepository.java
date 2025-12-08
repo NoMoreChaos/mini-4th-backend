@@ -2,7 +2,6 @@ package com.kt.aivle_central_4_8.repository;
 
 import com.kt.aivle_central_4_8.dto.book.response.BookSummaryDto;
 import com.kt.aivle_central_4_8.entity.BookEntity;
-import com.kt.aivle_central_4_8.entity.CoverEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.domain.Pageable;
