@@ -18,10 +18,10 @@ public class CreateController {
 
     // 책 등록
     @PostMapping("/books")
-    public ApiResponse<Long> createBook (
+    public ApiResponse<String> createBook (
             @Valid @RequestBody BookCreateRequest dto) {
 
-        Long bookCd = createService.createBook(dto);
+        String bookCd = createService.createBook(dto);
         return ApiResponse.success(bookCd);
     }
 }

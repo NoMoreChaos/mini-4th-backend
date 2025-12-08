@@ -14,12 +14,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CoverEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cover_cd", nullable = false)
-    private Long coverCd;
+    @Column(name = "cover_cd", nullable = false, length = 36)
+    private String coverCd;
 
-    @Column(name = "book_cd", nullable = false)
-    private Long bookCd;
+    @Column(name = "book_cd", nullable = false, length = 36)
+    private String bookCd;
 
     @Column(name = "cover_file_en", columnDefinition = "TEXT", nullable = false)
     @Lob

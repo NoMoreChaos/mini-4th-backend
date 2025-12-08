@@ -24,10 +24,25 @@ public class CreateService {
 
     // 책 등록
     @Transactional
-    public Long createBook(BookCreateRequest dto){
+    public String createBook(BookCreateRequest dto){
+
+        //  마지막 book_cd 조회
+        String lastBookCd = bookRepository.findLastBookCd();
+        // 다음 ID 계산
+        String nextBookCd;
+        if(lastBookCd == null) {
+            nextBookCd = "B0001";
+        }
+        else {
+            String numberPart = lastBookCd.substring(1); // B0001 -> 0001로 B제거
+            long nextNumber = Long.parseLong(numberPart) + 1; // 정수(long) 로 바꾼 뒤 +1 증가
+            String nextNumberStr = String.format("%04d", nextNumber); // 다시 문자열 "0002" 로 바꾸는 코드
+            nextBookCd = "B"+nextNumberStr;
+        }
 
         // BookEntity 생성 (Dto -> Entity 매핑)
         BookEntity book = new BookEntity();
+        book.setBookCd(nextBookCd);
         book.setUserCd(dto.getUserCd());
         book.setBookNm(dto.getBookNm());
         book.setBookSummaryDc(dto.getBookSummaryDc());
@@ -38,7 +53,19 @@ public class CreateService {
 
         bookRepository.save(book);
 
-        Long bookCd = book.getBookCd(); // bookCd 생성
+        //  마지막 book_cd 조회
+        String lastCoverCd = coverRepository.findLastCoverCd();
+        // 다음 ID 계산
+        String nextCoverCd;
+        if(lastCoverCd == null) {
+            nextCoverCd = "C0001";
+        }
+        else {
+            String numberPart = lastCoverCd.substring(1); // C0001 -> 0001로 C제거
+            long nextNumber = Long.parseLong(numberPart) + 1; // 정수(long) 로 바꾼 뒤 +1 증가
+            String nextNumberStr = String.format("%04d", nextNumber); // 다시 문자열 "0002" 로 바꾸는 코드
+            nextCoverCd = "C"+nextNumberStr;
+        }
 
         // URL -> Base64 변환
         String base64Image = convertImageUrlToBase64(dto.getCoverFileEn());
@@ -47,7 +74,8 @@ public class CreateService {
 
         // CoverEntity 생성
         CoverEntity cover = CoverEntity.builder()
-                .bookCd(bookCd)
+                .coverCd(nextCoverCd)
+                .bookCd(nextBookCd)
                 .coverFileEn(base64Image) // (이미지 Base64 저장)
                 .coverPromptDc(dto.getCoverPromptDc())
                 .coverSelectYn(true)
@@ -55,7 +83,7 @@ public class CreateService {
 
         coverRepository.save(cover);
 
-        return bookCd;
+        return nextBookCd;
     }
 
     // 이미지 변환 메서드 url -> base64

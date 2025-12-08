@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BookCreateRequest {
     @NotNull
-    private Long userCd;          // 생성자 코드
+    private String userCd;          // 생성자 코드
     @NotBlank
     private String userNickNm;      // 생성자 닉네임
     @NotBlank
