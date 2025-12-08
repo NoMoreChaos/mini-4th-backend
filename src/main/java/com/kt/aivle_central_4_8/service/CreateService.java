@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Base64;
@@ -61,7 +62,8 @@ public class CreateService {
     private String convertImageUrlToBase64(String imageUrl) {
         try {
             // 이미지 url 연결
-            URL url = new URL(imageUrl);
+            URI uri = URI.create(imageUrl);
+            URL url = uri.toURL();
 
             // URL로 스트림 열기
             try (InputStream inputStream = url.openStream();
