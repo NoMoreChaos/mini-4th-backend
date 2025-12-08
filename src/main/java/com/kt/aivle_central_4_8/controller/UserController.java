@@ -4,7 +4,7 @@
 
 package com.kt.aivle_central_4_8.controller;
 
-import com.kt.aivle_central_4_8.controller.dto.LoginRequest;
+import com.kt.aivle_central_4_8.dto.user.request.LoginRequest;
 import com.kt.aivle_central_4_8.dto.ApiResponse;
 import com.kt.aivle_central_4_8.service.UserService;
 import lombok.RequiredArgsConstructor;

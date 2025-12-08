@@ -33,3 +33,4 @@ target/
 build/
 
 personal.yaml
+src/main/resources/personal.yaml

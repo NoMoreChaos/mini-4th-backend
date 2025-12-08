@@ -2,7 +2,7 @@
 // - 사용자 계정 관련 로직을 처리하는 서비스 클래스
 package com.kt.aivle_central_4_8.service;
 
-import com.kt.aivle_central_4_8.dto.user_tb.LoginResultDto;
+import com.kt.aivle_central_4_8.dto.user.response.LoginResultDto;
 import com.kt.aivle_central_4_8.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
