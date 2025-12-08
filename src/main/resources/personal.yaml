@@ -1,6 +1,6 @@
 personal:
-  db-id: "aivle"
-  db-pw: "aivle202508"
-  ssh-key: "/Users/a1707/sgcp_db_rsa"
-  ssh-passphrase: "aivle202508"
-  ssh-username: "a1707"
+  db-id: "DB 아이디"
+  db-pw: "DB 비번"
+  ssh-key: "SSH키 경로"
+  ssh-passphrase: "SSH키 암호"
+  ssh-username: "SSH 접속할 아이디"
