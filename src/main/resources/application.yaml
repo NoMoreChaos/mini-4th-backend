@@ -1,14 +1,38 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: aivle-central-4-8
+
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: "jdbc:mariadb://aice4db.duckdns.org:3306/aivle4th"
-    username: ${personal.db-id}       # 데이터베이스 아이디
-    password: ${personal.db-pw} # 데이터베이스 비밀번호
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 1234
+
   jpa:
+    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
     show-sql: true
-  config:
-    import: classpath:personal.yaml
+
+  sql:
+    init:
+      mode: always   # ⭐⭐⭐ 이거 반드시 필요함
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+        trace: false
+
+  mvc:
+    static-path-pattern: /static/**
+    pathmatch:
+      matching-strategy: ant_path_matcher
