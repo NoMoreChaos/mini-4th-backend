@@ -20,7 +20,7 @@ public class CoverEntity {
     @Column(name = "book_cd", nullable = false, length = 36)
     private String bookCd;
 
-    @Column(name = "cover_file_en", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "cover_file_en", columnDefinition = "LONGTEXT", nullable = false)
     @Lob
     private String coverFileEn;
 
