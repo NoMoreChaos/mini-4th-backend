@@ -54,17 +54,19 @@ public class ModifyService {
         book.setBookNm(request.getBookNm());
         book.setUserCd(request.getUserCd());
         book.setBookContentDc(request.getBookContentDc());
+        String coverFileEn = request.getCoverFileEn();
 
-        String coverFileEn = convertImageUrlToBase64(request.getCoverFileEn());
+        if(coverFileEn.startsWith("http"))
+            coverFileEn = convertImageUrlToBase64(request.getCoverFileEn());
         CoverEntity cover = new CoverEntity();
         List<CoverEntity> coverList = modifyCoverRepository.getCoverList(request.getBookCd());
 
         for(CoverEntity c : coverList){
-            if(c.getCoverFileEn().equals(coverFileEn)){
-                cover = c;
-            }
             c.setCoverSelectYn(false);
         }
+        String coverCd = modifyCoverRepository.findAll().getLast().getCoverCd();
+        int coverId = Integer.parseInt(coverCd.substring(1));
+        cover.setCoverCd("C"+String.format("%04d", coverId+1));
         cover.setBookCd(request.getBookCd());
         cover.setCoverFileEn(coverFileEn);
         cover.setCoverSelectYn(true);
