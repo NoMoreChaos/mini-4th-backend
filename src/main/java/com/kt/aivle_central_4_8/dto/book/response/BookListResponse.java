@@ -1,3 +1,5 @@
+//BookListResponse
+
 package com.kt.aivle_central_4_8.dto.book.response;
 
 import lombok.AllArgsConstructor;

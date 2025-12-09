@@ -1,7 +1,0 @@
-personal:
-  db-id: "aivle"
-  db-pw: "aivle202508"
-  ssh-key: "D:\\.ssh\\aivle_rsa"
-  ssh-passphrase: ""
-  ssh-username: "pi"
-  keystore-password: sj7983

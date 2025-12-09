@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 public class BookEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_cd", nullable = false, length = 36)
     private String bookCd;
 
@@ -43,4 +42,3 @@ public class BookEntity {
     private String userCd;
 
 }
- 

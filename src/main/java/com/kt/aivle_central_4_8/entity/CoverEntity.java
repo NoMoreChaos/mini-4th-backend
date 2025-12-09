@@ -12,7 +12,6 @@ import lombok.*;
 @Builder
 public class CoverEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cover_cd", nullable = false, length = 36)
     private String coverCd;
 

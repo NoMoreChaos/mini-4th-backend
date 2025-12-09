@@ -1,5 +1,7 @@
+//book service
 package com.kt.aivle_central_4_8.service;
 
+import com.kt.aivle_central_4_8.entity.BookEntity;
 import com.kt.aivle_central_4_8.dto.book.request.BookListRequest;
 import com.kt.aivle_central_4_8.dto.book.response.BookListResponse;
 import com.kt.aivle_central_4_8.dto.book.response.BookSummaryDto;
@@ -30,10 +32,15 @@ public class BookService {
 
         // 장르 필터 + 페이지네이션 적용된 책 목록 조회
         List<BookSummaryDto> list = bookRepository
-                .findBooks(genre, pageable)
+                .findBooksWithSelectedCover(genre, pageable)
                 .stream()
-                .map(BookSummaryDto::from)
+                .map(row -> {
+                    BookEntity book = (BookEntity) row[0];
+                    String coverFileEn = (String) row[1];
+                    return BookSummaryDto.from(book, coverFileEn);
+                })
                 .toList();
+
 
         return new BookListResponse(total, list);
     }
