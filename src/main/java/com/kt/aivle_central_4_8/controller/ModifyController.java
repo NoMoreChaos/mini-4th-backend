@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/api/book")
 @RequiredArgsConstructor
+@ResponseBody
 public class ModifyController {
     private final ModifyService modifyService;
 
@@ -25,7 +26,7 @@ public class ModifyController {
     }
 
     @PutMapping("/modify")
-    public ApiResponse<?> ModifyBook(@RequestParam ModifyRequest request){
+    public ApiResponse<?> ModifyBook(@RequestBody ModifyRequest request){
         return modifyService.putModified(request) ?
                 ApiResponse.success(null) : ApiResponse.failure("저장에 실패하였습니다.");
     }

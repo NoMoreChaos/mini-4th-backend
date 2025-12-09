@@ -59,7 +59,6 @@ public class ModifyService {
         cover.setBookCd(request.getBookCd());
         cover.setCoverFileEn(coverFileEn);
         cover.setCoverSelectYn(true);
-        cover.setCoverCd(request.getCoverCd());
         modifyBookRepository.save(book);
         modifyCoverRepository.save(cover);
 
@@ -87,7 +86,7 @@ public class ModifyService {
                 byte[] imageBytes = outputStream.toByteArray();
 
                 // Base64 문자열로 인코딩
-                return Base64.getEncoder().encodeToString(imageBytes);
+                return "data:image/png;base64," + Base64.getEncoder().encodeToString(imageBytes);
             }
         } catch (Exception e) {
             throw new RuntimeException("image URL to Base64 변환중 오류 발생: " + imageUrl, e);
