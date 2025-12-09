@@ -109,7 +109,9 @@ public class CreateService {
                 byte[] imageBytes = outputStream.toByteArray();
 
                 // Base64 문자열로 인코딩
-                return Base64.getEncoder().encodeToString(imageBytes);
+                String base64Img = Base64.getEncoder().encodeToString(imageBytes);
+
+                return "data:image/png;base64," + base64Img;
             }
         } catch (Exception e) {
             throw new RuntimeException("image URL to Base64 변환중 오류 발생: " + imageUrl, e);
