@@ -37,8 +37,7 @@ src/main/java/com/kt/aivle_central_4_8
 │
 ├─ dto/             # API 요청/응답 데이터 구조(DTO) 모음
 │  ├─ book/         # 도서 CRUD 관련 DTO
-│  ├─ user/         # 사용자 로그인/정보 관련 DTO
-│  └─ user_tb/      # DB user 테이블 기반 DTO
+│  └─ user/         # 사용자 로그인/정보 관련 DTO
 │
 ├─ entity/          # JPA 엔티티 (DB 테이블 매핑)
 │
