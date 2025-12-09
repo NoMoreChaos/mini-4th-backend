@@ -37,6 +37,7 @@ public class ModifyService {
                 .bookCd(bookCd)
                 .bookNm(book.getBookNm())
                 .bookSummaryDc(book.getBookSummaryDc())
+                .bookContentDc(book.getBookContentDc())
                 .userCd(book.getUserCd())
                 .userNickNm(modifyBookRepository.getUserNickName(book.getUserCd()))
                 .bookGenreFg(book.getBookGenreFg())
@@ -53,9 +54,17 @@ public class ModifyService {
         book.setBookNm(request.getBookNm());
         book.setUserCd(request.getUserCd());
         book.setBookContentDc(request.getBookContentDc());
-        String coverFileEn = convertImageUrlToBase64(request.getCoverFileEn());
 
-        CoverEntity cover = modifyCoverRepository.getCoverEntity(request.getBookCd());
+        String coverFileEn = convertImageUrlToBase64(request.getCoverFileEn());
+        CoverEntity cover = new CoverEntity();
+        List<CoverEntity> coverList = modifyCoverRepository.getCoverList(request.getBookCd());
+
+        for(CoverEntity c : coverList){
+            if(c.getCoverFileEn().equals(coverFileEn)){
+                cover = c;
+            }
+            c.setCoverSelectYn(false);
+        }
         cover.setBookCd(request.getBookCd());
         cover.setCoverFileEn(coverFileEn);
         cover.setCoverSelectYn(true);

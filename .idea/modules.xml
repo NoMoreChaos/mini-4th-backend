@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aivle-central-4-8.iml" filepath="$PROJECT_DIR$/.idea/modules/aivle-central-4-8.iml" group="aivle-central-4-8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aivle-central-4-8_main.iml" filepath="$PROJECT_DIR$/.idea/modules/aivle-central-4-8_main.iml" group="aivle-central-4-8" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aivle-central-4-8_test.iml" filepath="$PROJECT_DIR$/.idea/modules/aivle-central-4-8_test.iml" group="aivle-central-4-8" />
+    </modules>
+  </component>
+</project>
