@@ -13,6 +13,7 @@ public class ModifyLoadDto {
     private String bookCd;
     private String bookNm;
     private String bookSummaryDc;
+    private String bookContentDc;
     private String userCd;
     private String userNickNm;
     private String bookGenreFg;
