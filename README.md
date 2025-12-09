@@ -24,6 +24,7 @@ Frontend README : [https://github.com/NoMoreChaos/mini-4th-frontend](https://git
   <img src="https://img.shields.io/badge/Gradle-02303A?style=flat&logo=gradle&logoColor=white"/>
   <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white"/>
 </p>
+
 ---
 
 ## Project Structure
@@ -51,6 +52,7 @@ src/main/java/com/kt/aivle_central_4_8
 
 
 ---
+
 ## Database Design (ERD)
 ![](https://velog.velcdn.com/images/didi_code/post/05b900b6-b0c2-4af2-8ed6-82ad0cca314c/image.png)
 
@@ -83,6 +85,7 @@ src/main/java/com/kt/aivle_central_4_8
 
 
 ---
+
 ## ⚙ 실행 방법 (Local Setup)
 
 ```
