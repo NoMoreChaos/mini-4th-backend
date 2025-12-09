@@ -78,7 +78,7 @@ src/main/java/com/kt/aivle_central_4_8
 | 도서 상세 조회        | GET    | /api/books/detail            | 단일 도서의 상세 정보 + 표지 이미지 조회 |
 | 도서 삭제             | DELETE | /api/books/delete            | 특정 도서를 삭제 |
 | 도서 수정 조회(초기값)| GET    | /api/books/modify/{bookCd}   | 도서 수정 페이지 호출 시 기존 정보 + 커버 히스토리 제공 |
-| 도서 수정(저장)       | PUT    | /api/books/modify/{bookCd}   | 도서 정보 및 표지 업데이트 내용 저장 |
+| 도서 수정(저장)       | PUT    | /api/books/modify   | 도서 정보 및 표지 업데이트 내용 저장 |
 
 
 
