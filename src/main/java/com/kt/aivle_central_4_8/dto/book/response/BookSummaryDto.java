@@ -14,7 +14,6 @@ public class BookSummaryDto {
     private String bookGenreFg;
     private String bookCreateDt;
     private String bookModifyDt;
-    private String coverFileEn;
 
     public static BookSummaryDto from(BookEntity entity) {
         return new BookSummaryDto(
@@ -24,7 +23,6 @@ public class BookSummaryDto {
                 entity.getBookGenreFg(),
                 entity.getBookCreateDt().toString(),
                 entity.getBookModifyDt().toString()
-                entity.getCoverCd()
         );
     }
 }
