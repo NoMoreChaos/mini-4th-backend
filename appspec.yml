@@ -1,0 +1,27 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ec2-user/app
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop.sh
+      timeout: 60
+      runas: ec2-user
+
+  AfterInstall:
+    - location: scripts/set_permission.sh
+      timeout: 30
+      runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 120
+      runas: ec2-user
+
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 60
+      runas: ec2-user
