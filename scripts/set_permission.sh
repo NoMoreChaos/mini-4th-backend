@@ -1,3 +1,3 @@
 #!/bin/bash
-chmod +x /home/ec2-user/app/*.jar
-chmod +x /home/ec2-user/app/scripts/*.sh
+chmod +x /home/ubuntu/app/*.jar
+chmod +x /home/ubuntu/app/scripts/*.sh
