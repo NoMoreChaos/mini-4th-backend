@@ -3,9 +3,9 @@ spring:
     name: aivle-central-4-8
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: "jdbc:mariadb://localhost:3306/aivle4th"
-    username: ${personal.db-id}       # 데이터베이스 아이디
-    password: ${personal.db-pw} # 데이터베이스 비밀번호
+    url: ${DB_URL}
+    username: ${DB_ID}       # 데이터베이스 아이디
+    password: ${DB_PW} # 데이터베이스 비밀번호
   jpa:
     hibernate:
       ddl-auto: none
