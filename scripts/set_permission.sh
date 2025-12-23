@@ -1,3 +1,3 @@
 #!/bin/bash
-chmod +x /home/ubuntu/app/*.jar
-chmod +x /home/ubuntu/app/*.sh
+chmod +x /home/ubuntu/backend/*.jar
+chmod +x /home/ubuntu/backend/*.sh
